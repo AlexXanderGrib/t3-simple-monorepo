@@ -6,6 +6,19 @@
     "frontend",
     "backend"
   ],
+  "scripts": {
+    "frontend:env": "cross-env PORT=3000 BACKEND_URL=http://localhost:5000",
+    "backend:env": "cross-env PORT=5000",
+    "frontend:build": "yarn frontend:env yarn workspace frontend build",
+    "backend:build": "yarn backend:env yarn workspace backend build",
+    "frontend:dev": "yarn frontend:env yarn workspace frontend dev",
+    "backend:dev": "yarn backend:env yarn workspace backend dev",
+    "frontend:start": "yarn frontend:env yarn workspace frontend start",
+    "backend:start": "yarn backend:env yarn workspace backend start",
+    "build": "yarn frontend:build && yarn backend:build",
+    "start": "concurrently \"npm:frontend:start\" \"npm:backend:start\"",
+    "dev": "concurrently \"npm:frontend:dev\" \"npm:backend:dev\""
+  },
   "dependencies": {
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3"

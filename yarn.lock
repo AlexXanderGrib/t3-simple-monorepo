@@ -980,7 +980,6 @@ __metadata:
     "@prisma/client": ^4.7.1
     "@trpc/server": ^10.4.3
     "@types/node": ^18.11.11
-    devtools-protocol: ^0.0.1079624
     dotenv: ^16.0.3
     fastify: ^4.10.2
     prisma: ^4.7.1
@@ -1413,13 +1412,6 @@ __metadata:
   bin:
     detective: bin/detective.js
   checksum: dc4601bbc6be850edb3c2dab7a0eaf5a6169a15ad201679c66d40ea1986df816eeaecd590047f15b0780285f3eeea13b82dca0d4c52a47e744a571e326a72dc9
-  languageName: node
-  linkType: hard
-
-"devtools-protocol@npm:^0.0.1079624":
-  version: 0.0.1079624
-  resolution: "devtools-protocol@npm:0.0.1079624"
-  checksum: 919f803b84ef09d2891e00933d990cee806370626501f98a522c31b01cbc2a80fbff8f0d9cc99d89c43bd7e66cf20841ec3c3b2674c175848c6c210894925b10
   languageName: node
   linkType: hard
 

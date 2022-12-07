@@ -2,15 +2,16 @@
   "name": "backend",
   "packageManager": "yarn@3.3.0",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "dev": "ts-node --project tsconfig.json ./src/server.ts"
+    "dev": "ts-node --project tsconfig.json ./src/server.ts",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "@fastify/websocket": "^7.1.1",
     "@prisma/client": "^4.7.1",
     "@trpc/server": "^10.4.3",
-    "devtools-protocol": "^0.0.1079624",
     "dotenv": "^16.0.3",
     "fastify": "^4.10.2",
     "zod": "^3.19.1"

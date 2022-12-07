@@ -8,12 +8,15 @@ export interface ServerOptions {
   dev?: boolean;
   port?: number;
   prefix?: string;
+  host?: string;
 }
 
-function createServer(opts: ServerOptions) {
-  const dev = opts.dev ?? true;
-  const port = opts.port ?? 3000;
-  const prefix = opts.prefix ?? "/trpc";
+function createServer({
+  dev = true,
+  port = 3000,
+  prefix = "/trpc",
+  host = "0.0.0.0",
+}: ServerOptions) {
   const server = fastify({ logger: dev });
 
   server.register(ws);
@@ -23,15 +26,11 @@ function createServer(opts: ServerOptions) {
     trpcOptions: { router: appRouter, createContext },
   });
 
-  server.get("/", async () => {
-    return { hello: "wait-on 💨" };
-  });
-
   const stop = () => server.close();
   const start = async () => {
     try {
-      await server.listen(port);
-      console.log("listening on port", port);
+      await server.listen({ host, port });
+      console.log(`Listening on http://${host}:${port}`);
     } catch (err) {
       server.log.error(err);
       process.exit(1);
